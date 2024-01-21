@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300;400;700&display=swap');
+
+:root
+{
+    --main-color:#0aad0a;
+    --light-color:#f0f3f2;
+    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --font-family:'Encode Sans Expanded', sans-serif;
+    --rating-color:#ffc908;
+}
+
+body{
+    font-family: var(--font-family) !important;
+}
+.rating-color
+{
+    color: var(--rating-color);
+}
+.cursor-pointer
+{
+    cursor: pointer;
+}
+a , a:hover{
+    color: black !important;
+    text-decoration: none !important;
+}
+.product:hover
+{
+    box-shadow: var(--shadow);
+    border: solid 1px var(--main-color);
+}
+.product .btn 
+{
+    transition: transform 1s , opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.product:hover .btn 
+{
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+.font-sm
+{
+    font-size: 14px;
+}
+.text-main
+{
+    color: var(--main-color);
+}
+.bg-main
+{
+    background-color: var(--main-color) !important;
+}
+.bg-main-light 
+{
+    background-color: var(--light-color) !important;
+}
+
+/* form */
+.inp{
+    border: 0 !important;
+    border-bottom: 1px solid green !important ;
+    border-radius: 0% !important;
+    box-shadow: none !important;
+    outline: none !important;
+
+}
+.inp:focus{
+    box-shadow:  none !important;
+    border-bottom: 2px solid #0aad0a !important ;
+}
+
+.inp::placeholder{
+    color: #0aad0a !important;
+}
+.inp::-webkit-outer-spin-button, .inp::-webkit-inner-spin-button , .inp[type=number]{
+    appearance: none;
+}
+
+.icon{
+    left: 10px !important;
+}
+
+.btn:hover{
+    color: #f1f0f0 !important;
+}
