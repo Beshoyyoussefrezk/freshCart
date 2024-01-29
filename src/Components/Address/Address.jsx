@@ -13,7 +13,7 @@ export default function Address() {
     let [domin , setDomin] = useState(null)
     let [loading, setLoading] = useState(false)
     useEffect(()=>{
-        setDomin(window.location.origin+'/freshCart/')
+        setDomin(window.location.origin)
     },[])
     async function onlinePaymentSubmit(values) {
         setLoading(true)
