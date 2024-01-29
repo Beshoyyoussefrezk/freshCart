@@ -12,7 +12,7 @@ export default function Cart() {
 
     useEffect(()=>{
         displayCart()
-    },[])
+    })
 
     async function displayCart() {
         setLoading(true)
