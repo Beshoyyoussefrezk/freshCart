@@ -10,6 +10,10 @@ export default function Cart() {
     let [cartDetails, setCartDetails] = useState('');
     let [loading, setLoading] = useState(false);
 
+    useEffect(()=>{
+        displayCart()
+    },[])
+
     async function displayCart() {
         setLoading(true)
         let { data } = await getCart();
@@ -53,11 +57,6 @@ export default function Cart() {
 
 
     }
-
-    useEffect(() => {
-       displayCart()
-    }, [])
-
     return <>
         <Helmet>
             <title>The Cart</title>

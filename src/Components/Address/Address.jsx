@@ -2,7 +2,7 @@
 import freshcartCover from '../../Assets/freshcart.png';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Loading from "../Loading/Loading"
 import { Helmet } from 'react-helmet';
 import { cartContext } from '../../Context/CartContext';
@@ -10,10 +10,14 @@ import { cartContext } from '../../Context/CartContext';
 
 export default function Address() {
     let {cartId , CheckoutSession,setNumOfCartItems} = useContext(cartContext)
+    let [domin , setDomin] = useState(null)
     let [loading, setLoading] = useState(false)
+    useEffect(()=>{
+        setDomin(window.location.origin)
+    },[])
     async function onlinePaymentSubmit(values) {
         setLoading(true)
-        let {data} = await CheckoutSession(cartId,'http://localhost:3000',values)
+        let {data} = await CheckoutSession(cartId,domin,values)
         setNumOfCartItems(0)
         window.location.href = data?.session.url;
         setLoading(false)

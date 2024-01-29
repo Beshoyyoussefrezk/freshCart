@@ -18,7 +18,6 @@ export default function CategorySlider() {
         slidesToShow: 6,
         slidesToScroll: 1
     };
-    console.log(data?.data.data)
     return <>
     <h1 className="h4 mt-5 mb-4 text-muted" >Shop Popular Categories</h1>
         {isLoading? <Loading/> :''}
