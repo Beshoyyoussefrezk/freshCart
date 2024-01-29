@@ -5,7 +5,7 @@ import Cart from './Components/Cart/Cart';
 import NotFound from './Components/NotFound/NotFound';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
-import { RouterProvider, createHashRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
 import { useContext, useEffect } from 'react';
@@ -14,7 +14,7 @@ import { cartContext } from './Context/CartContext';
 import Address from './Components/Address/Address';
 import Orders from './Components/Orders/Orders'
 import Cash from './Components/Cash/Cash'
-const routers = createHashRouter([
+const routers = createBrowserRouter([
   {
     path: '', element: <Layout />, children: [
       { index: true, element: localStorage.getItem('token')? <Home /> : <SignUp /> },
