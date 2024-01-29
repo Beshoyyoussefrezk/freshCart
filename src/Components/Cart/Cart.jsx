@@ -6,15 +6,16 @@ import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-    let { getCart, removeCartItem, updateCartItem, setNumOfCartItems, clearCartItems, setCartId } = useContext(cartContext);
+    let { getCart, removeCartItem, updateCartItem, numOfCartItems, setNumOfCartItems, clearCartItems, setCartId } = useContext(cartContext);
     let [cartDetails, setCartDetails] = useState('');
     let [loading, setLoading] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         displayCart()
-    },[])
+    }, [])
 
     async function displayCart() {
+        
         setLoading(true)
         let { data } = await getCart();
         if (data === undefined) {
@@ -54,9 +55,8 @@ export default function Cart() {
             setCartDetails('No products in your cart')
         }
         setLoading(false)
-
-
     }
+
     return <>
         <Helmet>
             <title>The Cart</title>
@@ -116,16 +116,22 @@ export default function Cart() {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                <div className="col">
-                    <Link to='/address' className="btn bg-main mt-5 text-white px-3">Online Payment</Link>
-                </div>
-                <div className="col">
-                    <Link to='/cash' className="btn bg-main mt-5 text-white px-3">Cash Payment</Link>
-                </div>
+                
             </div>
-            </div>)}
-         
+            
+            )}
+            {numOfCartItems===0?'':<div className="row">
+                    <div className="col">
+                        <Link to='/address' className="btn bg-main mt-5 text-white px-3">Online Payment</Link>
+                    </div>
+                    <div className="col">
+                        <Link to='/cash' className="btn bg-main mt-5 text-white px-3">Cash Payment</Link>
+                    </div>
+                </div>
+
+            }
+            
+
         </div>
 
     </>

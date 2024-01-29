@@ -17,7 +17,7 @@ import Cash from './Components/Cash/Cash'
 const routers = createBrowserRouter([
   {
     path: '', element: <Layout />, children: [
-      { index: true, element: localStorage.getItem('token')? <Home /> : <SignUp /> },
+      { path: 'freshCart', element: localStorage.getItem('token')? <Home /> : <SignUp /> },
       { path: 'login', element: <LogIn /> },
       { path: 'products', element: <ProtectedRoute><Home /></ProtectedRoute> },
       { path: 'cart', element: <ProtectedRoute><Cart /></ProtectedRoute> },
